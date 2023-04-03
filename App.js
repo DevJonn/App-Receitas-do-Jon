@@ -1,17 +1,13 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
+
+import { NavigationContainer } from '@react-navigation/native'
+import { Routes } from './src/routes'
 
 export default function App(){
   return(
-    <View style={styles.container}>
-
-    </View>
+    <NavigationContainer>
+    <Routes />
+    </NavigationContainer>
   )
 }
 
-const styles = StyleSheet.create({
-  container:{
-    backgroundColor: 'red',
-    height: 400
-  }
-})
-//hoje nao é sexta-feira
