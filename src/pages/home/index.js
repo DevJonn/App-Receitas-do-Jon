@@ -7,7 +7,8 @@ export function Home(){
     const [inputValue, setInputValue] = useState ("")
 
     function handleSearch(){
-        console.log("VOCÊ CLICOU NESSE BOTÃO")
+        console.log("Você digitou:")
+        console.log(inputValue)
     }
 
 
