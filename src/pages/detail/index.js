@@ -42,7 +42,7 @@ export function Detail(){
 
             </View>
 
-        //começando 222
+        //começando 222222
         </ScrollView>
     )
 }
