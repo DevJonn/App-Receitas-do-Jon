@@ -41,7 +41,7 @@ export function Detail(){
             <View style={styles.headerDetails}>
                 <View>
                     <Text>{route.params?.data.name}</Text>
-                    <Text>ingredientes {route.params?.data.total_ingredients}</Text>
+                    <Text>ingredientes ({route.params?.data.total_ingredients})</Text>
                 </View>
             </View>
 
@@ -69,5 +69,3 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     }
 })
-
-//terminando o dia
