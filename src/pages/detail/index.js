@@ -1,7 +1,7 @@
 import { useLayoutEffect } from 'react'
 import { View, Text, StyleSheet, Pressable, ScrollView, Image } from 'react-native'
 import {  useRoute, useNavigation } from '@react-navigation/native'
-import { Entypo, AntDesign } from '@expo/vector-icons'
+import { Entypo, AntDesign, Feather } from '@expo/vector-icons'
 
 
 export function Detail(){
@@ -40,9 +40,13 @@ export function Detail(){
 
             <View style={styles.headerDetails}>
                 <View>
-                    <Text>{route.params?.data.name}</Text>
-                    <Text>ingredientes ({route.params?.data.total_ingredients})</Text>
+                    <Text style={styles.title}>{route.params?.data.name}</Text>
+                    <Text style={styles.ingredientsText}>ingredientes ({route.params?.data.total_ingredients})</Text>
                 </View>
+                <Pressable>
+                    <Feather name='share-2' size={24} color='#121212' />
+                </Pressable>
+
             </View>
 
         </ScrollView>
@@ -67,5 +71,16 @@ const styles = StyleSheet.create({
         top: 0, left: 0, right: 0, bottom: 0,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    title:{
+        fontSize: 18,
+        marginTop: 14,
+        fontWeight: 'bold',
+        color: '#000',
+        marginBottom: 4
+    },
+    ingredientsText:{
+        marginBottom: 14,
+        fontSize: 16
     }
 })
