@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react'
-import { View, Text, StyleSheet, Pressable, ScrollView, Image, } from 'react-native'
+import { View, Text, StyleSheet, Pressable, ScrollView, Image } from 'react-native'
 import {  useRoute, useNavigation } from '@react-navigation/native'
 import { Entypo, AntDesign } from '@expo/vector-icons'
 
@@ -38,11 +38,13 @@ export function Detail(){
                 />
             </Pressable>
 
-            <View style={styles.header.Details}>
-
+            <View style={styles.headerDetails}>
+                <View>
+                    <Text>{route.params?.data.name}</Text>
+                    <Text>ingredientes {route.params?.data.total_ingredients}</Text>
+                </View>
             </View>
 
-        //começando 222222
         </ScrollView>
     )
 }
