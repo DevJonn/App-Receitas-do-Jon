@@ -2,6 +2,8 @@ import { useLayoutEffect } from 'react'
 import { View, Text, StyleSheet, Pressable, ScrollView, Image } from 'react-native'
 import {  useRoute, useNavigation } from '@react-navigation/native'
 import { Entypo, AntDesign, Feather } from '@expo/vector-icons'
+import {Ingredients } from '../../components/ingredientes'
+import { Instructions } from '../../components/instructions'
 
 
 export function Detail(){
@@ -82,5 +84,11 @@ const styles = StyleSheet.create({
     ingredientsText:{
         marginBottom: 14,
         fontSize: 16
+    },
+    headerDetails:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 14,
     }
 })
