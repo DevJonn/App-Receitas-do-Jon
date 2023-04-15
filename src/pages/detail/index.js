@@ -69,3 +69,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     }
 })
+
+//terminando o dia
