@@ -31,7 +31,7 @@ export function Detail(){
     }, [navigation, route.params?.data])
 
     function handleOpenvideo(){
-        console.log('clicouu')
+        setShowVideo(true);
     }
 
     return(
