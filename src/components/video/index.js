@@ -1,9 +1,21 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native'
 
-export function VideoView(){
+import { Feather } from '@expo/vector-icons'
+
+export function VideoView({ handleClose, videoUrl }){
     return(
-        <View>
-            <Text>TESTANDOOO</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <TouchableOpacity>
+                <Feather name='arrow-left' size={24} color='#FFF' />
+                <Text> Voltar </Text>
+            </TouchableOpacity>
+        </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        width: '100%'
+    }
+})
