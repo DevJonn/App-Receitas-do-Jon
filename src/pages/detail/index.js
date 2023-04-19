@@ -1,14 +1,16 @@
-import { useLayoutEffect } from 'react'
-import { View, Text, StyleSheet, Pressable, ScrollView, Image } from 'react-native'
+import { useLayoutEffect, useState } from 'react'
+import { View, Text, StyleSheet, Pressable, ScrollView, Image, Modal } from 'react-native'
 import {  useRoute, useNavigation } from '@react-navigation/native'
 import { Entypo, AntDesign, Feather } from '@expo/vector-icons'
 import {Ingredients } from '../../components/ingredientes'
 import { Instructions } from '../../components/instructions'
+import { VideoView } from '../../components/video'
 
 
 export function Detail(){
     const route = useRoute();
     const navigation = useNavigation();
+    const [showVideo, setShowVideo] = useState(true);
 
     useLayoutEffect(() => {
 
@@ -28,9 +30,13 @@ export function Detail(){
 
     }, [navigation, route.params?.data])
 
+    function handleOpenvideo(){
+        console.log('clicouu')
+    }
+
     return(
         <ScrollView contentContainerStyle={{ paddingBottom: 14 }}  style={styles.container} showsVerticalScrollIndicator={false}>
-            <Pressable>
+            <Pressable onPress={handleOpenvideo}>
                 <View style={styles.playIcon}>
                     <AntDesign name="playcircleo" size={50} color="#FAFAFA"  />
                 </View>
@@ -67,6 +73,13 @@ export function Detail(){
             {route.params?.data.instructions.map( (item, index) => (
                 <Instructions key={item.id} data={item} index={index} />
             ))}
+
+        <Modal visible={showVideo} animationType='slide' >
+                <VideoView
+                    handleClose={() => setShowVideo(false) }
+                    videoUrl={route.params?.data.video}
+                />
+        </Modal>
 
         </ScrollView>
     )
