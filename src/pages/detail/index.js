@@ -23,7 +23,7 @@ export function Detail(){
         navigation.setOptions({
             title: route.params?.data ? route.params?.data.name : "Detalhes da receita",
             headerRight: () => (
-                <Pressable onPress={ () => handleFavoriteReceipe(rout.params?.data) }>
+                <Pressable onPress={ () => handleFavoriteReceipe(route.params?.data) }>
                     { favorite ? (
                         <Entypo
                             name='heart'
@@ -45,7 +45,15 @@ export function Detail(){
 
     }, [navigation, route.params?.data, favorite])
 
-    
+    async function handleFavoriteReceipe(receipe){
+        if(favorite){
+            await removeItem(receipe.id)
+            setFavorite(false);
+        }else{
+            await saveFavorite('@appreceitas', receipe)
+            setFavorite(true);
+        }
+    }
 
     function handleOpenvideo(){
         setShowVideo(true);

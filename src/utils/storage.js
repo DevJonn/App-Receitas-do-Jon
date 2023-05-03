@@ -10,7 +10,7 @@ export async function getFavorites(key){
 }
 
 
-export async function saveFavorite(kay, newItem){
+export async function saveFavorite(key, newItem){
     let myFavorites = await getFavorites(key);
 
     let hasItem = myFavorites.some( item => item.id === newItem.id)
@@ -34,7 +34,7 @@ export async function removeItem(id){
         return (item.id !== id)
     })
 
-    await AsyncStorage.setItem('@appreceitas', JSON,stringify(myFavorites));
+    await AsyncStorage.setItem('@appreceitas', JSON.stringify(myFavorites));
     console.log('ITEM DELETADO COM SUCESSO!')
     return myFavorites;
 
