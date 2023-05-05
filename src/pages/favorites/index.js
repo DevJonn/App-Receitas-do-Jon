@@ -1,19 +1,34 @@
 import { useState, useEffect } from 'react' //useState busca o status, useEffect busca a lista.
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
-import { getFavorites } from '../../utils/storage'
+import { View, Text, StyleSheet, SafeAreaView, FlatList } from 'react-native'
+import { useIsFocused } from '@react-navigation/native'
+import { getFavorites } from '../../utils/storage' 
+import { FoodList } from '../../components/foodlist'
+
+
 
 export function Favorites(){
-    const [receipes, setReceipes] = useState([]);
+    const [receipes, setReceipes] = useState([]); //exibe ou n as receitas salvas
+    const isFocused = useIsFocused(); 
 
     useEffect(()=> {
+        let isActive = true;
 
         async function getReceipes(){
             const result = await getFavorites('@appreceitas');
+            if(isActive){
+                setReceipes(result);
+            }            
         }
 
-        getReceipes();
+        if(isActive){
+            getReceipes();
+        }
 
-    }, [])
+        return () => {
+            isActive = false;
+        }
+
+    }, [isFocused])
 
     return(
         <SafeAreaView style={styles.container}>
@@ -22,6 +37,16 @@ export function Favorites(){
         {receipes.length == 0 && (
             <Text>Você ainda não tem nenhuma receita salva.</Text>
         )}
+
+            <FlatList
+                showsHorizontalScrollIndicator={false}
+                style={{ marginTop: 14 }}
+                data={receipes}
+                keyExtractor={ (item) => String(item.id) }
+                renderItem={({item}) => <FoodList data={item} isFavorite={true} onUnfavorite={() => handleUnfavorite(item)} />}
+            />
+
+            
 
         </SafeAreaView>
     )

@@ -16,7 +16,7 @@ export async function saveFavorite(key, newItem){
     let hasItem = myFavorites.some( item => item.id === newItem.id)
 
     if(hasItem){
-        console.log('ESTÁ FUNCIONANDO')
+        
         return;
     }
 
