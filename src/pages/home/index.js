@@ -25,8 +25,10 @@ export function Home(){
     }, [])
 
     function handleSearch(){
-        console.log("Você digitou:")
-        console.log(inputValue)
+        if(!inputValue) return;
+
+        let input = inputValue;
+        navigation.navigate("Search")
     }
 
 
