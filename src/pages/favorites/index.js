@@ -39,11 +39,11 @@ export function Favorites(){
         )}
 
             <FlatList
-                showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
                 style={{ marginTop: 14 }}
                 data={receipes}
                 keyExtractor={ (item) => String(item.id) }
-                renderItem={({item}) => <FoodList data={item} isFavorite={true} onUnfavorite={() => handleUnfavorite(item)} />}
+                renderItem={({item}) => <FoodList data={item} />}
             />
 
             

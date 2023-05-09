@@ -8,6 +8,8 @@ import { VideoView } from '../../components/video'
 import { isFavorite, saveFavorite, removeItem } from '../../utils/storage'
 
 
+
+
 export function Detail(){
     const route = useRoute();
     const navigation = useNavigation();
@@ -16,7 +18,7 @@ export function Detail(){
 
     useLayoutEffect(() => {
 
-        async function getStatusFavorites(){
+        async function getStatusFavorite(){
             const receipeFavorite = await isFavorite(route.params?.data)
         }
 
