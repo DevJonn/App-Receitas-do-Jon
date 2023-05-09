@@ -28,7 +28,8 @@ export function Home(){
         if(!inputValue) return;
 
         let input = inputValue;
-        navigation.navigate("Search")
+        setInputValue("")   //função para quando voltar a tela, dar vazio a caixa de busca.
+        navigation.navigate("Search", { name: input } )
     }
 
 
